@@ -1,19 +1,30 @@
-Assessment Q1.sql
+# Data Analyst Assessment
 
-select * from (
-SELECT 
-    b.id AS owner_id, 
-    COALESCE(b.first_name, b.last_name) AS name, 
-    COUNT(DISTINCT CASE WHEN a.is_a_fund = 1 THEN a.owner_id END) AS investment_count,
-    COUNT(DISTINCT CASE WHEN a.is_regular_savings = 1 THEN a.owner_id END) AS savings_count,
-    SUM(c.confirmed_amount )/ 100 AS total_deposit
-FROM users_customuser b
- JOIN plans_plan a 
-ON b.id = a.owner_id 
- JOIN savings_savingsaccount c 
-ON b.id = c.owner_id 
-WHERE a.id IS NOT NULL AND c.id IS NOT NULL 
-GROUP BY b.id, COALESCE(b.first_name, b.last_name)
-having (sum(confirmed_amount) - sum(deduction_amount)) > 0
-) a
-where investment_count > 0 and savings_count > 0
+### Assessment_Q1
+#### Challenges
+- The business requires records of customers who have at least one funded savings account and one funded investment account. I initially struggled with the script because I was unfamiliar with the table structures, which resulted in null values in the output that did not meet the requirements.
+- After revising my understanding, I created a correct script; however, it timed out during execution which became a challenge to me.
+
+#### Solutions
+- 
+
+### Assessment_Q2
+#### Challenges
+- 
+
+#### Solutions
+- 
+
+### Assessment_Q3
+#### Challenges
+-
+
+#### Solutions
+-
+
+### Assessment_Q4
+#### Challenges
+-
+
+#### Solutions
+-
